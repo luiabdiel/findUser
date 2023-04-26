@@ -1,5 +1,6 @@
 import { MdLocationPin } from 'react-icons/md';
 import { IUser } from '../../types/User';
+import styles from './styles.module.scss';
 
 export function Profile({
   login,
@@ -9,23 +10,23 @@ export function Profile({
   following
 }:IUser) {
   return (
-    <div>
+    <div className={styles.container}>
       <img src={avatar_url} alt={login} />
       <h2>{login}</h2>
       {location && (
-        <p>
+        <p className={styles.location}>
           <MdLocationPin/>
           <span>{location}</span>
         </p>
       )}
-      <div>
+      <div className={styles.stats}>
         <div>
-          <p>Seguidores:</p>
-          <p>{followers}</p>
+          <p>Seguidores</p>
+          <p className={styles.number}>{followers}</p>
         </div>
         <div>
-          <p>Seguindo:</p>
-          <p>{following}</p>
+          <p>Seguindo</p>
+          <p className={styles.number}>{following}</p>
         </div>
       </div>
     </div>
