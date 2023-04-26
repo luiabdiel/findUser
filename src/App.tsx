@@ -12,19 +12,19 @@ export function App() {
       const { data } = await api.get(`${Username}`);
 
       const {
-        login,
         avatar_url,
-        location,
         followers,
-        following
+        following,
+        location,
+        login
       } = data;
 
       const userData: IUser = {
-        login,
         avatar_url,
-        location,
         followers,
         following,
+        location,
+        login
       };
 
       setUsers(userData);
