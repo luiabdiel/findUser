@@ -9,25 +9,8 @@ export function App() {
 
   async function handlefetchUser(Username: string) {
     try {
-      const { data } = await api.get(`${Username}`);
-
-      const {
-        avatar_url,
-        followers,
-        following,
-        location,
-        login
-      } = data;
-
-      const userData: IUser = {
-        avatar_url,
-        followers,
-        following,
-        location,
-        login
-      };
-
-      setUsers(userData);
+      const response = await api.get(`${Username}`);
+      setUsers(response.data);
     } catch (error) {
       console.log(error);
     }
